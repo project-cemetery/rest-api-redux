@@ -1,0 +1,30 @@
+{
+  "name": "rest-api-redux",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types" : "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheNovel/rest-api-redux.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "redux"
+  ],
+  "author": "Igor Kamyshev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheNovel/rest-api-redux/issues"
+  },
+  "homepage": "https://github.com/TheNovel/rest-api-redux#readme",
+  "devDependencies": {
+    "jest": "^22.4.3",
+    "typescript": "^2.8.3"
+  }
+}

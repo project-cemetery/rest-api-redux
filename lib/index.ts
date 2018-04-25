@@ -1,0 +1,1 @@
+export default (age: number) => age + 12
