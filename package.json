@@ -1,12 +1,13 @@
 {
   "name": "rest-api-redux",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
