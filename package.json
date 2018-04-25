@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "jest"
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/TheNovel/rest-api-redux#readme",
   "devDependencies": {
     "jest": "^22.4.3",
+    "ts-jest": "^22.4.4",
     "typescript": "^2.8.3"
   }
 }
