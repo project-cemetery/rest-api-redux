@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "prepare": "yarn build"
+    "prepare": "npm build"
   },
   "repository": {
     "type": "git",
