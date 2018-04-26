@@ -1,7 +1,7 @@
 import {} from 'jest'
 import { encodeQuery, objectToParameters } from '../utils'
 
-describe('`encodeQuery` works right', () => {
+describe('encodeQuery', () => {
     test('with empty array should return empty string ', () => {
         expect(encodeQuery([])).toEqual('')
     })
@@ -24,7 +24,11 @@ describe('`encodeQuery` works right', () => {
     })
 })
 
-describe('`objectToParameters` works right', () => {
+describe('objectToParameters', () => {
+    test('with undifined should return empty array', () => {
+        expect(objectToParameters()).toEqual([])
+    })
+
     test('with empty object should return empty array', () => {
         expect(objectToParameters({})).toEqual([])
     })

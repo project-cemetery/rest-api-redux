@@ -3,7 +3,7 @@ export interface Parameter {
     value: string
 }
 
-export const objectToParameters = (obj: any): Parameter[] =>
+export const objectToParameters = (obj: any = {}): Parameter[] =>
     Object.keys(obj).map((key) => ({
         key,
         value: obj[key].toString(),
