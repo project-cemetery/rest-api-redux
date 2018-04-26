@@ -1,1 +1,4 @@
-export { Entity, Collection } from './model'
+export {
+    Entity, Collection,
+    EntityLoadState, getInitialState,
+} from './model'
