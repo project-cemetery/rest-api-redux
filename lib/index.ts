@@ -1,1 +1,1 @@
-export default (age: number) => age + 12
+export { Entity, Collection } from './model'
