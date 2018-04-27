@@ -1,12 +1,13 @@
 module.exports = {
     transform: {
-        "^.+\\.tsx?$": "ts-jest",
+        "^.+\\.ts$": "ts-jest",
     },
-    testRegex: "\\.spec\\.tsx?$",
-    moduleFileExtensions: [ "ts", "tsx", "js" ],
+    testRegex: "\\.spec\\.ts$",
+    moduleFileExtensions: [ "ts", "js" ],
     collectCoverage: true,
     collectCoverageFrom: [
-        "**/front/**/*.{ts,tsx}",
+        "lib/**/*.ts",
+        "!lib/index.ts",
     ],
     coverageDirectory: "./coverage",
     moduleDirectories: ["node_modules", "front"],
