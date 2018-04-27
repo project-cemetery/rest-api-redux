@@ -103,7 +103,6 @@ describe('createPut', () => {
 
         return createPut(
             API_URL,
-            (obj) => obj.id,
             (obj) => ({ id: obj.id }),
         )(ENTITY)(data)
             .then((result) => expect(result).toEqual({ id: 1 }))
@@ -114,10 +113,7 @@ describe('createPut', () => {
 
         (axios as any).put.mockResolvedValue({ data })
 
-        return createPut(
-            API_URL,
-            (obj) => obj.id,
-        )(ENTITY)(data)
+        return createPut(API_URL)(ENTITY)(data)
             .then((result) => expect(result).toEqual({ id: 1 }))
     })
 })

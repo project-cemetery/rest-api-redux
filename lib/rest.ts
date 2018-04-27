@@ -37,8 +37,7 @@ export const createPost = (
 
 export const createPut = (
     apiUrl: string,
-    getId: (entity: Entity) => number,
     transformEntity: (entity: any) => any = defaultTransform,
 ) => <T extends Entity>(entityName: string) =>
-    (entity: T) => put(apiUrl, entityName, getId(entity), entity)
+    (entity: T) => put(apiUrl, entityName, entity.id, entity)
         .then((response) => transformEntity(response.data))
