@@ -1,5 +1,5 @@
 import { Action } from 'redux-actions'
-import { Collection, Entity, EntityLoadState as State } from '../model'
+import { Collection, Entity, EntityLoadState as State, PartialState } from '../model'
 
 // Delete
 export const createHandleDeleteRequest = <T extends Entity>() =>
@@ -19,7 +19,7 @@ export const createHandleDeleteSuccess = <T extends Entity>() =>
             loading: false,
             error: false,
         },
-        entities: state.entities.filter((e) => e.id !== action.payload.id),
+        entities: state.entities.filter((e) => e.id !== (action.payload && action.payload.id)),
     })
 
 export const createHandleDeleteFailure = <T extends Entity>() =>
@@ -51,7 +51,7 @@ export const createHandleGetSuccess = <T extends Entity>() =>
             error: false,
         },
         entities: [
-            ...state.entities.filter((e) => e.id !== action.payload.id),
+            ...state.entities.filter((e) => e.id !== (action.payload && action.payload.id)),
             action.payload,
         ],
     })
@@ -114,7 +114,7 @@ export const createHandlePostSuccess = <T extends Entity>() =>
             error: false,
         },
         entities: [
-            ...state.entities.filter((e) => e.id !== action.payload.id),
+            ...state.entities.filter((e) => e.id !== (action.payload && action.payload.id)),
             action.payload,
         ],
     })
@@ -147,7 +147,7 @@ export const createHandlePutSuccess = <T extends Entity>() =>
             error: false,
         },
         entities: [
-            ...state.entities.filter((e) => e.id !== action.payload.id),
+            ...state.entities.filter((e) => e.id !== (action.payload && action.payload.id)),
             action.payload,
         ],
     })

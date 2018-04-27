@@ -3,7 +3,7 @@ import { AxiosResponse } from 'axios'
 import { del, get, getList, post, put } from './http'
 import { Collection, Entity } from './model'
 
-const defaultTransform = (entity) => entity
+const defaultTransform = (entity: any) => entity
 
 export const createDelete = (apiUrl: string) => <T extends Entity>(enityName: string) =>
     (id: number) => del(apiUrl, enityName, id)
@@ -17,7 +17,8 @@ export const createGet = (
         .then((response) => transformEntity(response.data))
 
 export const createGetList = (
-    apiUrl: string, getMember: (response: AxiosResponse<any>) => any[],
+    apiUrl: string,
+    getMember: (response: AxiosResponse<any>) => any[],
     getTotal: (response: AxiosResponse<any>) => number,
     transformEntity: (entity: any) => any = defaultTransform,
 ) => <T extends Entity>(entityName: string) =>

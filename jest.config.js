@@ -7,6 +7,7 @@ module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
         "lib/**/*.ts",
+        "!lib/index.ts",
     ],
     coverageDirectory: "./coverage",
     moduleDirectories: ["node_modules", "front"],

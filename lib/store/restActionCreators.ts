@@ -1,6 +1,10 @@
 import { Dispatch } from 'redux'
 import { Actions, Collection, Entity, EntityLoadState, RestAction } from '../model'
 
+// For nullable action creators
+const createAction = <T extends Entity>(actionCreator?: (params?: any) => any, params?: any) =>
+    (!!actionCreator && actionCreator(params)) as RestAction<T>
+
 export const createDelete = <AppState, T extends Entity>(
     actions: Actions<T>,
     getEntityState: (state: AppState) => EntityLoadState<T>,
@@ -9,12 +13,12 @@ export const createDelete = <AppState, T extends Entity>(
     if (!getEntityState(getState()).delete.loading) {
         const { deleteRequest, deleteSuccess, deleteFailure } = actions
 
-        dispatch(deleteRequest())
+        dispatch(createAction(deleteRequest))
 
         return del(id)
             .then(
-                (resposne) => dispatch(deleteSuccess({ id } as T)), // Dirty hack
-                (error)    => dispatch(deleteFailure()),
+                (resposne) => dispatch(createAction(deleteSuccess, { id } as T)), // Dirty hack
+                (error)    => dispatch(createAction(deleteFailure)),
             )
     } else {
         return Promise.resolve()
@@ -29,12 +33,12 @@ export const createGet = <AppState, T extends Entity>(
     if (!getEntityState(getState()).get.loading) {
         const { getRequest, getSuccess, getFailure } = actions
 
-        dispatch(getRequest())
+        dispatch(createAction(getRequest))
 
         return get(id)
             .then(
-                (reponse) => dispatch(getSuccess(reponse)),
-                (error)   => dispatch(getFailure()),
+                (reponse) => dispatch(createAction(getSuccess, reponse)),
+                (error)   => dispatch(createAction(getFailure)),
             )
     } else {
         return Promise.resolve()
@@ -49,12 +53,12 @@ export const createGetList = <AppState, T extends Entity>(
     if (!getEntityState(getState()).getList.loading) {
         const { getListRequest, getListSuccess, getListFailure } = actions
 
-        dispatch(getListRequest())
+        dispatch(createAction(getListRequest))
 
         return getList(params)
             .then(
-                (response) => dispatch(getListSuccess(response)),
-                (error)      => dispatch(getListFailure()),
+                (response) => dispatch(createAction(getListSuccess, response)),
+                (error)    => dispatch(createAction(getListFailure)),
             )
     } else {
         return Promise.resolve()
@@ -69,12 +73,12 @@ export const createPost = <AppState, T extends Entity>(
     if (!getEntityState(getState()).post.loading) {
         const { postRequest, postSuccess, postFailure } = actions
 
-        dispatch(postRequest())
+        dispatch(createAction(postRequest))
 
         return post(entity)
         .then(
-            (response) => dispatch(postSuccess(response)),
-            (error)    => dispatch(postFailure()),
+            (response) => dispatch(createAction(postSuccess, response)),
+            (error)    => dispatch(createAction(postFailure)),
         )
     } else {
         return Promise.resolve()
@@ -89,12 +93,12 @@ export const createPut = <AppState, T extends Entity>(
     if (!getEntityState(getState()).put.loading) {
         const { putRequest, putSuccess, putFailure } = actions
 
-        dispatch(putRequest())
+        dispatch(createAction(putRequest))
 
         return put(entity)
             .then(
-                (reponse) => dispatch(putSuccess(reponse)),
-                (error)   => dispatch(putFailure()),
+                (reponse) => dispatch(createAction(putSuccess, reponse)),
+                (error)   => dispatch(createAction(putFailure)),
             )
     } else {
         return Promise.resolve()
