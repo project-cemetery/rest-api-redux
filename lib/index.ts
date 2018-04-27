@@ -104,6 +104,7 @@ export const createActionCreators = (
 }
 
 export {
+    Actions,
     Entity, Collection,
     EntityLoadState,
     getInitialState,
