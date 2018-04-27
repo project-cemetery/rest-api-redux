@@ -51,7 +51,7 @@ export interface Actions<T extends Entity> {
     putFailure?: () => Action<{}>,
 
     deleteRequest?: () => Action<{}>,
-    deleteSuccess?: (flag: boolean) => Action<boolean>,
+    deleteSuccess?: (object: T) => Action<boolean>,
     deleteFailure?: () => Action<{}>,
 
     getList?: (params?: any) => Promise<Collection<T>>

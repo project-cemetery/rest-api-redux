@@ -13,7 +13,7 @@ export const createDelete = <AppState, T extends Entity>(
 
         return del(id)
             .then(
-                (resposne) => dispatch(deleteSuccess(resposne)),
+                (resposne) => dispatch(deleteSuccess({ id } as T)), // Dirty hack
                 (error)    => dispatch(deleteFailure()),
             )
     } else {
