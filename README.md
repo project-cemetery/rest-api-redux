@@ -51,7 +51,7 @@ const restActionCreators = createActionCreators(
 )
 
 export const actionCreators = {
-    ...commonActionCreators,
+    ...restActionCreators,
 }
 
 // reducers
@@ -119,7 +119,7 @@ const restActionCreators = createActionCreators<AppState, Article>(
 )
 
 export const actionCreators = {
-    ...commonActionCreators,
+    ...restActionCreators,
 }
 
 // reducers
