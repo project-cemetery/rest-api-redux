@@ -66,7 +66,7 @@ export const reducers = handleActions(
 
 Great! You can use `actionCreators` and `reducers` in your app.
 
-# Usage in TS
+## Usage in TS
 
 ```ts
 // utils/redux.js
