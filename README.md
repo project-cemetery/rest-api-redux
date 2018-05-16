@@ -133,3 +133,8 @@ export const reducers = handleActions(
 ```
 
 Great! You can use `actionCreators`, `reducers` and interfaces in your app.
+
+## Examples
+
+Projects uses `rest-api-redux`:
++ [Numidium](https://github.com/TheNovel/Numidium)
