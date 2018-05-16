@@ -13,7 +13,7 @@ Simple integration REST API with Redux
 ## Usage in JS
 
 ```js
-# utils/redux.js
+// utils/redux.js
 
 import { createActionCreators, createReducers } from 'rest-api-redux'
 
@@ -31,7 +31,7 @@ export const reducers = createReducers()
 ```
 
 ```js
-# store/articles.js
+// store/articles.js
 
 import { getInitialState } from 'rest-api-redux'
 import { handleActions } from 'redux-actions'
@@ -67,3 +67,69 @@ export const reducers = handleActions(
 Great! You can use `actionCreators` and `reducers` in your app.
 
 # Usage in TS
+
+```ts
+// utils/redux.js
+
+import { createActionCreators, createReducers } from 'rest-api-redux'
+
+export const actionCreators = createActionCreators(
+    'https://api.mysite.com/rest',
+    (entity: any) => ({
+        ...entity,
+        fetchedAt: Date.now(),
+    }), // transform entity
+    (response: any) => response.data['members'], // get memebers from list response
+    (response: any) => parseInt(response.data['totalItems'], 10), // get memebers from list response
+)
+
+export const reducers = createReducers()
+```
+
+```ts
+// store/articles.js
+
+import { getInitialState, Entity, EntityLoadState } from 'rest-api-redux'
+import { handleActions } from 'redux-actions'
+
+import {
+    actionCreators as createActionCreators,
+    reducers as createReducers,
+} from 'utils/redux'
+
+import { AppState } from 'reducers' // interface of your state
+
+const ENTITY_NAME = 'articles' // rest entity name — https://api.mysite.com/rest/articles
+ 
+// interfaces
+
+export interface Article extends Entity {
+    title: string
+    // ...
+}
+
+export interface ArticlesState extends EntityLoadState<Article> {
+}
+
+// actions
+
+const restActionCreators = createActionCreators<AppState, Article>(
+    ENTITY_NAME,
+    (state: AppState) => state.articles, // get state fragment
+)
+
+export const actionCreators = {
+    ...commonActionCreators,
+}
+
+// reducers
+
+const restReducers = createReducers<Article>(ENTITY_NAME)
+
+export const reducers = handleActions(
+    { ...restReducers } as any,
+    { ...getInitialState<Article>() },
+)
+```
+
+Great! You can use `actionCreators`, `reducers` and interfaces in your app.
