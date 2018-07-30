@@ -1,6 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/igorkamyshev/rest-api-redux.svg?branch=master)](https://travis-ci.org/igorkamyshev/rest-api-redux)
-[![npm version](https://badge.fury.io/js/rest-api-redux.svg)](https://badge.fury.io/js/rest-api-redux)
+[![npm version](https://badge.fury.io/js/rest-api-redux.svg)](https://badge.fury.io/js/rest-api-redux) [![Greenkeeper badge](https://badges.greenkeeper.io/igorkamyshev/rest-api-redux.svg)](https://greenkeeper.io/)
 
 # rest-api-redux
 
