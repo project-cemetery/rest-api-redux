@@ -11,4 +11,6 @@ module.exports = {
     ],
     coverageDirectory: "./coverage",
     moduleDirectories: ["node_modules", "front"],
+    "verbose": true,
+    "testURL": "http://localhost/",
 }
