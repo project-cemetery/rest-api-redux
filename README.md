@@ -1,7 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/igorkamyshev/rest-api-redux.svg?branch=master)](https://travis-ci.org/igorkamyshev/rest-api-redux)
 [![npm version](https://badge.fury.io/js/rest-api-redux.svg)](https://badge.fury.io/js/rest-api-redux)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8efde772eee74b78a398a81564ba695d)](https://www.codacy.com/project/igorkamyshev/rest-api-redux/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=igorkamyshev/rest-api-redux&amp;utm_campaign=Badge_Grade_Dashboard)
 
 # rest-api-redux
 
